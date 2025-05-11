@@ -1,0 +1,5 @@
+2025-05-11:
+  - batch: Batch_001
+    count: 1000
+    path: /raw/batches/2025-05-11_Batch_001/
+    notes: Abstract data only – no sensitive information

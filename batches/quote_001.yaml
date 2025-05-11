@@ -1,0 +1,21 @@
+quote_id: quote_001
+customer: Demo Customer Inc.
+origin: Houston, TX
+destination: Atlanta, GA
+pickup_date: 2025-05-13
+delivery_date: 2025-05-15
+mode: FTL
+commodity: Industrial Equipment
+weight: 18,000 lbs
+dimensions: 12x6x8 ft
+value_usd: 125000
+urgency: high
+files_received:
+  - rfq_request.msg
+  - packing_list.xlsx
+  - spec_drawings.pdf
+risk_flags:
+  - high_value
+  - tight_delivery_window
+score: 85
+status: pending
