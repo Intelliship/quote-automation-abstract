@@ -1,0 +1,42 @@
+template_id: oversized_freight_base
+title: Oversized Freight Response - General
+use_case: Standard response for oversized shipments (e.g., RGN or Lowboy required)
+
+trigger_conditions:
+  - commodity_size: oversized
+  - equipment_required: [RGN, Lowboy]
+  - customer_type: known
+  - value_threshold_usd: 100000
+  - mode: domestic_trucking
+
+variables:
+  customer_name: "{{ customer_name }}"
+  order_number: "{{ order_number }}"
+  rate_quoted_usd: "{{ rate }}"
+  cargo_description: "{{ cargo_description }}"
+  transit_time: "{{ transit_time }}"
+  insurance_clause: "{{ insurance_clause }}"
+  accessorials: "{{ accessorials }}"
+
+response_body: |
+  Hi {{ customer_name }},
+
+  Thank you for the opportunity to support this project. Approval to adjust rate at ${{ rate_quoted_usd }} on Order #{{ order_number }}.
+
+  Commodity: {{ cargo_description }}
+  Equipment: RGN or Lowboy
+  Estimated Transit Time: {{ transit_time }}
+
+  Please note:
+  - Our standard insurance coverage is up to $100,000 USD.
+  - For stated values exceeding this amount, we can insure up to $6M in-house with advance confirmation.
+  - Accessorials ({{ accessorials }}) are not included and will be billed if incurred.
+
+  Let us know if you'd like to proceed or if further adjustments are needed.
+
+  Best regards,
+  The Palletized Team
+
+notes:
+  - This template supports quoting teams responding to DSV, Expeditors, and similar clients
+  - References SET by relying on observed quote structure and feedback logic
