@@ -1,0 +1,21 @@
+cluster_id: bess_cluster_2025
+project_type: Battery Energy Storage System
+docs:
+  - type: SDS
+    filename: MSDS_CM0780R0001A_ESS_78Ah_1702281.pdf
+  - type: Safety Protocol
+    filename: General Safety Regulations and Emergency response plan for working on BESS.pdf
+  - type: IMO Cert
+    filename: P20210142_UN3536_IMO_Certificate_20ft.pdf
+hazmat:
+  un_number: UN3536
+  class: 9
+  containerized: true
+  marine_transport_certified: true
+storage_requirements:
+  temperature_range: [-40, +60]
+  enclosed_handling: required
+flags:
+  - high_value
+  - hazmat_cert_required
+  - lithium_based

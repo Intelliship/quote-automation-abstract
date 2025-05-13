@@ -1,0 +1,10 @@
+project_id: siemens_blades_rfq
+customer: Siemens Gamesa
+rfq_reference: SGRE-US-AR-426 / RFQ0776
+transport_mode: ocean
+commodity: wind turbine blades
+risk_profile:
+  oversized: true
+  origin_country: Argentina
+  hazmat: false
+notes: RFQ only, no quote or execution files uploaded yet.

@@ -1,0 +1,37 @@
+project_id: tera9_project_2025
+customer: Expeditors / Greatech
+destination: New Iberia, LA
+lanes:
+  - origin: Port of New Orleans
+    mode: flatbed
+    loads: 7
+    rate_per_load: 1660.40
+  - origin: Port of New Orleans
+    mode: lowboy
+    width: "<12'"
+    loads: 24
+    rate_per_load: 2857.20
+  - origin: Port of New Orleans
+    mode: lowboy
+    width: ">12'"
+    loads: 16
+    rate_per_load: 3658.60
+  - origin: Port of Houston
+    mode: flatbed
+    loads: 7
+    rate_per_load: 1397.08
+  - origin: Port of Houston
+    mode: lowboy
+    width: "<12'"
+    loads: 24
+    rate_per_load: 1929.88
+  - origin: Port of Houston
+    mode: lowboy
+    width: ">12'"
+    loads: 16
+    rate_per_load: 2731.28
+risk_profile:
+  overweight: true
+  multileg: true
+  requires_rate_lock: true
+total_estimate_usd: 238530.36

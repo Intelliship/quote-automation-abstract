@@ -1,0 +1,56 @@
+shipment_id: 9990585080
+project_name: Vestas Yukon Oversize Delivery
+customer:
+  name: Vestas-American Wind Technology, Inc.
+  contact_person: Daniel Lindberg
+  destination_address: 3350 N Cimarron Road, Yukon, OK 73099, USA
+  po_numbers:
+    - 4510899349
+    - 4510923053
+documents:
+  - type: RFQ Email
+    filename: RE_ Rate request- Vestas - Yukon_ OK 73099 _ EBQ QOR800004124 .msg
+  - type: Packing List
+    filename: ALON PE10000877239_1 Packing List 9990585080 US.pdf
+  - type: Commercial Invoice
+    filename: ALON PE10000877237_1 Comm Inv. 9990585080 US.pdf
+cargo:
+  total_packages: 3
+  gross_weight_kg: 24200
+  net_weight_kg: 23600
+  boxes:
+    - box_id: 110000001013157503
+      item: GEN. ASSY 1.8MW 60HZ VND MK 1-
+      weight_kg: 6500
+      dimensions_cm: [300, 150, 225]
+      serial_no: 000DUTNAEA
+      hs_code: 85016400
+      origin_country: DE
+    - box_id: 110000001013160916
+      item: GEN. ASSY 1.8MW 60HZ VND MK 1-
+      weight_kg: 6500
+      dimensions_cm: [300, 150, 225]
+      serial_no: 000DVHEYJW
+      hs_code: 85016400
+      origin_country: DE
+    - box_id: 110000001013160923
+      item: E-TRAFO 7300 34.5 D 6
+      weight_kg: 11200
+      dimensions_cm: [290, 214, 273]
+      serial_no: 000DJ7HEMA
+      hs_code: 85043400
+      origin_country: TR
+financials:
+  commercial_value_usd: 309395.18
+  incoterms: FCA Videbæk
+  terms: current month, 10 days, due net
+risk_profile:
+  bonded: true
+  oversized: true
+  high_value: true
+  customs_clearance_required: true
+quote_logic_triggers:
+  - requires_permit: true
+  - route_risk_flag: bonded_load
+  - capacity_constraints: monitor
+  - equipment_type: [RGN, Stretch Trailer candidate]

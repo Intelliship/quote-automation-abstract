@@ -1,0 +1,12 @@
+tracker_id: sales_rep_quote_activity
+reps:
+  - name: Drew Keith
+    firm: Expeditors
+    quotes_submitted: 4
+    avg_response_time_hrs: 3.5
+    top_project: Tera 9 Project
+  - name: Marcus (DSV)
+    firm: DSV
+    quotes_submitted: 2
+    avg_response_time_hrs: 2.7
+    top_project: Lowboy Oversize Jobs
