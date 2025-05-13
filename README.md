@@ -1,41 +1,18 @@
-# Quote Automation System (Abstract Repo)
+# Quote Automation System – Abstract Logic Repository
 
-This repository is developed by **Intelliship LLC**, a Texas-based company founded in 2022.
-Originally operating in trucking and freight, Intelliship is now transitioning into a
-technology-driven business focused on logistics automation and quoting systems engineering.
+This repository contains abstracted logic and modular components that power the quote automation system at scale.
 
-## Purpose
+## Objective
 
-This abstract repository simulates a real-world quote automation system designed to:
-- Reduce quote turnaround time from 2+ hours to under 30 minutes
-- Process large volumes of RFQ (Request for Quote) documents
-- Score RFQs for risk and priority
-- Generate standardized, professional quote responses
+Reduce quote turnaround time from 2+ hours to under 30 minutes by using structured logic objects, reusable templates, and smart risk scoring.
 
-## Key Features
+## Structure
 
-- YAML-based RFQ intake logging
-- Risk scoring rules in markdown/YAML format
-- Markdown-based quote response templates
-- Bash or Python-ready scripting hooks for full automation
-- GitHub-safe abstraction (no raw customer data or proprietary files)
+- `rfq_clusters/` – YAML objects per project (e.g., Vestas, Tera9, Siemens)
+- `quote_templates/` – Prewritten customer responses based on scenario
+- `logic_modules/` – Risk scoring, decision rules, SLA triggers
+- `accessorials/` – Master accessorial cost tables (detention, FSC, permits)
 
-## Folder Structure
+## Usage
 
-- `/batches/`: Simulated RFQ batch metadata in YAML format
-- `/scripts/`: Automation scripts for file ingestion, scoring, and quote generation
-- `/templates/`: Markdown templates for quote replies
-- `/scoring/`: Logic and scoring rules for quote prioritization
-- `/output/`: Example processed files and response outputs
-
-## Use Cases
-
-This repository supports:
-- Logistics companies modernizing RFQ response workflows
-- Systems engineers showcasing process automation design
-- Portfolio builders creating IP around quoting and file ingestion logic
-
-## Licensing
-
-This system is protected and developed by **Intelliship LLC**.
-Please see `LICENSE.md` for usage guidelines.
+This repo consumes raw files from `quote-automation-raw` and transforms them into structured, automated logic for internal execution and customer response.

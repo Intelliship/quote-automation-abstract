@@ -1,0 +1,14 @@
+quote_id: example_001
+origin: Dallas, TX
+destination: Phoenix, AZ
+pickup_date: 2025-05-15
+delivery_date: 2025-05-17
+mode: FTL
+commodity: Machinery
+weight: 24000 lbs
+dimensions: 10x8x6 ft
+value_usd: 210000
+urgency: same_day
+risk_flags:
+  - high_value
+  - military_sensitive

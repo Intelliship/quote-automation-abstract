@@ -1,0 +1,21 @@
+urgency:
+  same_day: 10
+  next_day: 5
+  standard: 0
+
+value_usd:
+  under_50k: 0
+  50k_to_200k: 10
+  over_200k: 20
+
+missing_data_penalty:
+  origin: -5
+  destination: -5
+  weight: -5
+  dimensions: -5
+  value_usd: -5
+
+risk_flags:
+  high_value: 10
+  military_sensitive: 15
+  missing_documents: -10
