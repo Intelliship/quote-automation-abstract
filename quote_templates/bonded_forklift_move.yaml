@@ -1,0 +1,20 @@
+template_id: bonded_forklift_move
+title: Bonded Forklift Transport
+use_case: Forklifts/masts moving under customs bond (e.g., Galveston to Laredo)
+trigger_conditions:
+  - customs_clearance_required
+  - bonded: true
+  - commodity: forklift
+response_body: |
+  Hi {{ customer_name }},
+  
+  We appreciate the opportunity to support this bonded forklift move.
+  
+  Quote: ${{ rate }} for pickup at {{ origin }} with bonded clearance to {{ destination }}  
+  Documents Required: Commercial invoice, packing list, bond reference  
+  Included: Secure transport, bonded tracking, lift gate on request
+  
+  Please confirm the customs bond reference and desired pickup date.
+  
+  Regards,  
+  Palletized Operations

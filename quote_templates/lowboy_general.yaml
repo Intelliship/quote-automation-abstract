@@ -1,0 +1,21 @@
+template_id: lowboy_general
+title: Lowboy General Oversize
+use_case: Basic lowboy move under 12' width
+trigger_conditions:
+  - equipment_required: Lowboy
+  - oversized: true
+  - width_ft: <12
+response_body: |
+  Hi {{ customer_name }},
+  
+  Thank you for considering us for this oversize transport.
+  
+  Quote: ${{ rate }} using standard Lowboy under 12' width  
+  Commodity: {{ cargo_description }}  
+  Transit Estimate: {{ transit_time }}  
+  Insurance: Coverage up to $100,000 included
+  
+  Let us know if you'd like to proceed or have additional site access instructions.
+  
+  All the best,  
+  Palletized Dispatch

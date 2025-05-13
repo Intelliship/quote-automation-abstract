@@ -1,0 +1,21 @@
+template_id: high_value_ddu
+title: High-Value DDU Shipment Template
+use_case: Projects requiring delivery duty unpaid with high declared cargo value
+trigger_conditions:
+  - value_threshold_usd: >1000000
+  - incoterm: DDU
+  - oversized: false
+response_body: |
+  Hi {{ customer_name }},
+  
+  Your high-value DDU shipment quote has been prepared as follows:
+  
+  Rate: ${{ rate }} (excluding duties or customs fees)  
+  Declared Cargo Value: ${{ cargo_value }}  
+  Insurance: In-house coverage available up to $6M  
+  Special Handling: Yes – secure point-to-point tracking enabled
+  
+  Final delivery under DDU terms requires consignee to handle customs and import costs. Please confirm consignee contact.
+  
+  Warm regards,  
+  The Palletized Compliance Desk

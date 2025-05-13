@@ -1,0 +1,21 @@
+template_id: bess_transport
+title: Battery Energy Storage System (BESS) Transport
+use_case: Hazmat + High-value containerized battery shipments
+trigger_conditions:
+  - hazmat_cert_required
+  - un_number: UN3536
+  - marine_transport_certified
+response_body: |
+  Hi {{ customer_name }},
+  
+  Thank you for your inquiry. We’ve reviewed the transport request for your BESS containerized units.
+  
+  Rate: ${{ rate }} for 20ft container – UN3536 Hazmat Class 9 certified  
+  Insurance: Includes coverage up to $100,000 (expandable to $6M with advance notice)  
+  Required Docs: IMO Certificate, SDS, Emergency Plan on file  
+  Handling: Enclosed transport with strict hazmat handling standards
+  
+  Let us know if you'd like to proceed or require additional paperwork.
+  
+  Best,  
+  The Palletized Team
