@@ -1,0 +1,5 @@
+bess_cluster:
+  template: bess_transport.yaml
+
+high_value_cluster:
+  template: high_value_ddu.yaml

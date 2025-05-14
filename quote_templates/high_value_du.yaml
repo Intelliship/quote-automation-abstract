@@ -1,0 +1,14 @@
+response_body: |
+  Hi {{ customer_name }},
+
+  Thank you for your inquiry. We've reviewed the transport request for your containerized units.
+
+  Rate: ${{ rate }} for enclosed transport
+  Insurance: {{ insurance_clause }}
+  Required Docs: IMO Certificate, SDS, Emergency Plan on file
+  Handling: {{ handling_instructions }}
+
+  Let us know if you'd like to proceed or require additional paperwork.
+
+  Best,  
+  The Palletized Team
