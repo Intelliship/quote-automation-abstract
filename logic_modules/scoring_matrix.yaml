@@ -1,0 +1,10 @@
+# scoring_matrix.yaml
+
+permit_threshold_lbs: 45000
+escort_threshold_lbs: 60000
+
+scoring_weights:
+  0-2: Low
+  3-5: Moderate
+  6-9: High
+  10-100: Critical
