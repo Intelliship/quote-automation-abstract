@@ -1,67 +1,58 @@
 # quote_preview_engine.py
-# MVP quote preview system — built for clarity, reuse, and raw speed.
 
 import yaml
-from pathlib import Path
+import os
 
-# --- Configuration
-TEMPLATE_MAP_PATH = Path("template_map.yaml")
-TEMPLATE_DIR = Path("quote_templates")
+RISK_ENGINE_PATH = "logic_modules/quote-risk-engine.yaml"
+SCORING_MATRIX_PATH = "logic_modules/scoring_matrix.yaml"
+TEMPLATE_PATH = "quote_templates/flatbed_response.md"
 
-# --- Simulated incoming RFQ cluster and data
-rfq_cluster = "high_value_cluster"
+def load_yaml(path):
+    with open(path, "r") as file:
+        return yaml.safe_load(file)
 
-# --- Simulated variable values
-variables = {
-    "customer_name": "Leslie",
-    "order_number": "875420",
-    "rate": "11,200.00",
-    "cargo_description": "Siemens turbine housing",
-    "insurance_clause": "Expanded coverage to $6M",
-    "handling_instructions": "Climate-controlled warehouse, 24/7 guard",
-}
+def evaluate_risk(cluster_data, risk_engine, scoring_matrix):
+    score = 0
+    weight = cluster_data.get("weight_lbs", 0)
+    legs = cluster_data.get("journey_legs", 1)
+    destination = cluster_data.get("destination", "")
 
-# --- Payload override for demos, previews, or high-stakes customer sessions
-override = {
-    "customer_name": "Michael",
-    "rate": "9,870.00",
-    "order_number": "198422",
-    "cargo_description": "Battery Packs // Class 9 Hazmat",
-    "insurance_clause": "Up to $250K value with on-site inspection",
-    "handling_instructions": "Secure pallet wrap and escort",
-}
+    for rule in risk_engine.get("risk_factors", []):
+        if rule["name"] == "overweight" and weight > scoring_matrix["permit_threshold_lbs"]:
+            score += rule["score"]
+        elif rule["name"] == "escort_required" and weight > scoring_matrix["escort_threshold_lbs"]:
+            score += rule["score"]
+        elif rule["name"] == "remote_destination" and destination in rule.get("condition", ""):
+            score += rule["score"]
+        elif rule["name"] == "multi-leg" and legs > 1:
+            score += rule["score"]
 
-# --- Apply override on top of base variables
-variables.update(override)
+    for key, value in scoring_matrix["scoring_weights"].items():
+        lower, _, upper = key.partition("-")
+        if int(lower) <= score <= int(upper):
+            return score, value
 
-# --- Step 1: Load RFQ Cluster-to-Template Mapping
-with open(TEMPLATE_MAP_PATH, 'r') as f:
-    template_mapping = yaml.safe_load(f)
+    return score, "Unknown"
 
-# --- Step 2: Resolve Template Path
-template_file = template_mapping[rfq_cluster]["template"]
-template_path = TEMPLATE_DIR / template_file
+def suggest_template():
+    with open(TEMPLATE_PATH, "r") as file:
+        return file.read()
 
-# --- Step 3: Extract response body block from YAML
-with open(template_path, 'r') as f:
-    lines = f.readlines()
+def main():
+    cluster_file = input("Enter path to RFQ cluster file (e.g., rfq_clusters/project_heavyhaul.yaml): ")
+    if not os.path.exists(cluster_file):
+        print("File not found.")
+        return
 
-body_lines = []
-in_body = False
+    cluster_data = load_yaml(cluster_file)
+    risk_engine = load_yaml(RISK_ENGINE_PATH)
+    scoring_matrix = load_yaml(SCORING_MATRIX_PATH)
 
-for line in lines:
-    if line.strip() == "response_body: |":
-        in_body = True
-        continue
-    if in_body:
-        body_lines.append(line[2:] if line.startswith("  ") else line)
+    score, level = evaluate_risk(cluster_data, risk_engine, scoring_matrix)
 
-body = "".join(body_lines)
+    print(f"\n--- RISK EVALUATION ---\nScore: {score} | Level: {level}")
+    print("\n--- RECOMMENDED TEMPLATE ---")
+    print(suggest_template())
 
-# --- Step 4: Render template with variables
-for key, val in variables.items():
-    body = body.replace(f"{{{{ {key} }}}}", val)
-
-# --- Step 5: Output result
-print("\n--- Quote Preview ---\n")
-print(body)
+if __name__ == "__main__":
+    main()
