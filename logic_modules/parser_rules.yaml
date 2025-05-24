@@ -1,0 +1,34 @@
+# parser_rules.yaml
+
+# This file defines how raw inbound RFQ content should be interpreted into structured YAML.
+# Used by the quote automation system to auto-generate `rfq_cluster` entries.
+
+rules:
+  - field: project_name
+    match: "Project|Job|Reference"
+    action: extract_after_colon
+
+  - field: origin
+    match: "Origin|Pickup|POL"
+    action: extract_after_colon
+
+  - field: destination
+    match: "Destination|Delivery|POD"
+    action: extract_after_colon
+
+  - field: equipment
+    match: "Equipment|Trailer|Mode"
+    action: normalize_to_enum
+    options:
+      - flatbed
+      - stepdeck
+      - van
+      - container
+
+  - field: weight_lbs
+    match: "Weight|LBS|Weight(lbs)"
+    action: extract_number
+
+  - field: accessorials
+    match: "Accessorial|Add-ons|Surcharges"
+    action: tokenize_by_comma
