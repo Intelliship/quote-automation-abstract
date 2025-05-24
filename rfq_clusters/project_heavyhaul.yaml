@@ -1,0 +1,12 @@
+# project_heavyhaul.yaml
+
+project_name: paderewski_dualtruck
+origin: Port of Houston, TX
+destination: Baytown, TX
+equipment: flatbed
+weight_lbs: 49131
+accessorials:
+  - hazmat
+  - permit
+  - detention
+risk_profile: evaluated

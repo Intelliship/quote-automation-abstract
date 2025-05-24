@@ -1,0 +1,28 @@
+# quote-risk-engine.yaml
+
+# Risk scoring rules based on project traits, dimensions, and known surcharges
+
+permit_threshold_lbs: 45000
+escort_threshold_lbs: 60000
+
+risk_factors:
+  - name: overweight
+    condition: weight > 45000
+    score: 3
+
+  - name: escort_required
+    condition: weight > 60000
+    score: 5
+
+  - name: remote_destination
+    condition: destination in ["Cochise, AZ", "Odessa, TX", "Eagle Pass, TX"]
+    score: 2
+
+  - name: multi-leg
+    condition: journey_legs > 1
+    score: 1
+
+scoring_weights:
+  0-3: "Low"
+  4-6: "Medium"
+  7+: "High"
