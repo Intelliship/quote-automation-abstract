@@ -1,57 +1,35 @@
-# Intelliship Quote Automation System (Repo Index)
+# Quote Logic OS — SYSTEM OVERVIEW
 
-Welcome to the full-stack quoting automation ecosystem designed by Intelliship.
-This modular, CLI-driven system simulates how a freight organization can reduce
-quote turnaround time from **2+ hours** to **under 10 minutes** for live RFQs,
-and under 30 minutes for raw intake-to-decision scenarios.
+## 🎯 Core Intent
+Turn freight quoting from a reactive task into a programmable, logic-driven system.
 
-Each repo is composable, documented, and versioned for enterprise evolution.
+## 🔒 System Invariants (FPT)
+- All quotes originate from structured YAML clusters
+- Risk is quantified, not guessed (escorts, weight, journey legs)
+- Templates are selected, not written — based on score logic
 
----
+## 🔁 If Removed (Inverse FPT)
+- Remove risk_engine → quoting becomes tribal
+- Remove parser → intake velocity collapses
+- Remove templates → system loses speed + standardization
 
-## 🧱 Repo Index and Descriptions
+## 🧠 Structural Emergence (SET)
+The moment a YAML RFQ is scored and templated automatically, a system emerges. Every quote leaves behind a logic trail — for speed, audit, or scale.
 
-| Repo Name | Description |
-|-----------|-------------|
-| [`quote-automation-abstract`](https://github.com/Intelliship/quote-automation-abstract) | High-level orchestration of the quoting system using YAML and scripts |
-| [`bash-batch-intake`](https://github.com/Intelliship/bash-batch-intake) | Automates batch intake of files and generates structured intake logs |
-| [`rfq-normalizer`](https://github.com/Intelliship/rfq-normalizer) | Converts raw customer files (.msg, .pdf, .xlsx) into clean YAML RFQs |
-| [`quote-risk-engine`](https://github.com/Intelliship/quote-risk-engine) | Applies scoring rules to determine quote risk based on urgency, value, flags |
-| [`quote-decision-logic`](https://github.com/Intelliship/quote-decision-logic) | Decides to quote or not based on rules; assigns response templates |
-| [`rfq-template-library`](https://github.com/Intelliship/rfq-template-library) | Houses Markdown templates with dynamic placeholders for quote replies |
-| [`quote-preview-engine`](https://github.com/Intelliship/quote-preview-engine) | One-command quote preview engine that simulates entire quote generation |
-| [`quote-feedback-loop`](https://github.com/Intelliship/quote-feedback-loop) | Tracks quote outcomes, captures feedback, and classifies RFQ intent |
+## 💻 Core Components
 
----
+| Component | Function |
+|-----------|----------|
+| `raw_parser.py` | Creates structured RFQs from human input
+| `risk_engine.yaml` | Flags risk based on business rules
+| `scoring_matrix.yaml` | Converts raw risk into tiers
+| `quote_preview_engine.py` | Runs the quote logic in test mode
+| `quote_templates/` | Stores modular responses by condition
 
-## 📊 Architecture Highlights
+## 🧭 Strategic Role
+This system is:
+- Platform-agnostic
+- CRM-/bot-attachable
+- Ready to reduce quoting from 2+ hrs to under 30 mins
 
-- **Input Sources**: Email RFQs, file drops, SharePoint batch folders
-- **Processing Stack**: YAML + Bash + Python (fully modular CLI)
-- **Output Formats**: Human-readable Markdown, YAML logs, preview-ready quotes
-- **System Intelligence**:
-  - Risk scoring based on declared value, urgency, flags
-  - Quote decision logic (quote / no-quote + template selection)
-  - Intent classification (live vs. budgetary)
-  - Feedback logging for win/loss/ghosted
-
----
-
-## 🔄 Evolution Plan
-
-This system supports:
-- AI-driven classification (future LLM plug-in layer)
-- Integration with Salesforce or TMS
-- JSON or API translation layer for containerized scaling
-- KPI dashboards powered by `quote-feedback-loop`
-
----
-
-## 📦 Usage
-
-Each repo can be cloned and executed independently, or integrated via the `quote-preview-engine` CLI for full-stack simulation.
-
----
-
-Built by **Intelliship LLC**  
-Designed for modern freight quoting at enterprise scale.
+It is not a script. It is quote logic OS — designed to scale decisions, not just send emails.
