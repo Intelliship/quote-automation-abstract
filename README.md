@@ -1,18 +1,18 @@
 # Quote Automation System – Abstract Logic Repository
 
-This repository contains abstracted logic and modular components that power the quote automation system at scale.
+A structured quote lifecycle automation system abstracted from real-world logistics workflows. Built to reduce turnaround time, enforce consistency, and enable platform-scale quoting across enterprise operations.
 
 ## Objective
 
-Reduce quote turnaround time from 2+ hours to under 30 minutes by using structured logic objects, reusable templates, and smart risk scoring.
+Reduce quote turnaround time from 4+ hours to under 30 minutes using structured logic objects, reusable templates, and automated risk scoring.
 
 ## Structure
 
-- `rfq_clusters/` – YAML objects per project (e.g., Vestas, Tera9, Siemens)
-- `quote_templates/` – Prewritten customer responses based on scenario
-- `logic_modules/` – Risk scoring, decision rules, SLA triggers
-- `accessorials/` – Master accessorial cost tables (detention, FSC, permits)
+- `rfq_clusters/` – YAML-based logic objects per customer/project (e.g., Vestas, Tera9, Siemens)
+- `quote_templates/` – Prewritten customer responses based on quoting scenarios
+- `logic_modules/` – Risk scoring, decision rules, and SLA-based logic triggers
+- `accessorials/` – Master cost tables for detention, fuel surcharge, permits, etc.
 
 ## Usage
 
-This repo consumes raw files from `quote-automation-raw` and transforms them into structured, automated logic for internal execution and customer response.
+This repository consumes raw inputs from `quote-automation-raw/` and transforms them into structured, automated logic for quoting execution and internal ops workflows.
